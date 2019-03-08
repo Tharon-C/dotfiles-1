@@ -1,8 +1,3 @@
-# #!/usr/bin/env bash
-
-gpg2 --gen-key
-
-git config --global gpg.program gpg2
-
+#!/usr/bin/env bash
 git config --global user.name "tharon-c"
 git config --global user.email tharonica@gmail.com

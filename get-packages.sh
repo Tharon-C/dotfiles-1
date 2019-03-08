@@ -1,4 +1,4 @@
-# #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 apt update
 apt install software-properties-common apt-transport-https wget
@@ -20,8 +20,9 @@ apt-get install libgmp3-dev
 apt install curl
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 source $HOME/.nvm/nvm.sh
-export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/}.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source $HOME/.bashrc
 nvm ls-remote && nvm install --lts
 nvm use --delete-prefix v10.13.0 
 
@@ -126,9 +127,6 @@ snap install docker
 # npm packages
 # npx
 npm install -g npx
-
-# Elm
-npm install -g elm
 
 # Gatsby
 npm install -g gatsby-cli
