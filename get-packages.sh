@@ -27,21 +27,16 @@ nvm ls-remote && nvm install --lts
 nvm use --delete-prefix v10.13.0 
 
 # Virtual Box
-add-apt-repository -y "deb http://download.virtualbox.org/virtualbox/debian stretch contrib"
-curl -L https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-key add -
-apt-get update && sudo apt-get install -yf virtualbox-5.1
-
-# Java 
-echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/webupd8team-java.list
-echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | sudo tee -a /etc/apt/sources.list.d/webupd8team-java.list
-apt adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-apt update
-apt install oracle-java8-installer
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add -
+add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
+sudo apt update
+sudo apt install virtualbox-6.0
 
 # Vim
-git clone https://github.com/vim//vim.git
-make vim/src
-make install
+ apt remove -y vim-tiny
+ apt update
+ apt install -y vim 
 
 # openssh
 apt-get install openssh-server
