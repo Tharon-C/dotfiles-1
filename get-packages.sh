@@ -15,26 +15,15 @@ apt install gnupg2
 # Install `wget` with IRI support.
 apt-get install wget --with-iri
 
-# Install GnuPG to enable PGP-signing commits.
-# gnupg
-
 # Node 
 apt-get install libgmp3-dev
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+apt install curl
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 source $HOME/.nvm/nvm.sh
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm ls-remote && nvm install --lts
-
-# Docker 
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
-apt update && sudo apt install -fy docker-ce
-usermod -aG docker $USER
-
-# Docker Compose
-curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-mkdir -p ~/.zsh/completion
-curl -L https://raw.githubusercontent.com/docker/compose/1.21.2/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+nvm use --delete-prefix v10.13.0 
 
 # Virtual Box
 add-apt-repository -y "deb http://download.virtualbox.org/virtualbox/debian stretch contrib"
@@ -130,6 +119,9 @@ snap install hugo
 
 # Hugo
 snap install hugo
+
+# Docker
+snap install docker
 
 # npm packages
 # npx
