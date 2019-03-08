@@ -9,6 +9,9 @@ apt-get_PREFIX=$(apt-get --prefix)
 # snap package manager
 apt install snapd
 
+# gpg2
+apt install gnupg2
+
 # Install `wget` with IRI support.
 apt-get install wget --with-iri
 
