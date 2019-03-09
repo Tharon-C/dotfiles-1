@@ -15,6 +15,9 @@ apt install gnupg2
 # Install `wget` with IRI support.
 apt-get install wget --with-iri
 
+# Dconf
+apt-get install dconf-tools
+
 # Node 
 apt-get install libgmp3-dev
 apt install curl
@@ -25,13 +28,17 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/}.nvm"
 source $HOME/.bashrc
 nvm ls-remote && nvm install --lts
 nvm use --delete-prefix v10.13.0 
-
+chown -R $USER:$(id -gn $USER) /home/tharon/.config
 # Virtual Box
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add -
 add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo apt update
 sudo apt install virtualbox-6.0
+
+# Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 # Vim
  apt remove -y vim-tiny
@@ -127,5 +134,5 @@ npm install -g npx
 npm install -g gatsby-cli
 
 # Remove outdated versions from the cellar.
-# cleanup
+apt clean
  
