@@ -28,7 +28,8 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/}.nvm"
 source $HOME/.bashrc
 nvm ls-remote && nvm install --lts
 nvm use --delete-prefix v10.13.0 
-chown -R $USER:$(id -gn $USER) /home/tharon/.config
+chown -R $USER:$(id -gn $USER) /home/$USER/.config
+
 # Virtual Box
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add -
