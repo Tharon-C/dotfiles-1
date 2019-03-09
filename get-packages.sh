@@ -112,9 +112,6 @@ apt-get install tmux
 # VS Code
 snap install vscode --classic
 
-# Firefox
-snap install firefox
-
 # Slack
 snap install slack --classic
 
