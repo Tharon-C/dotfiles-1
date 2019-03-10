@@ -50,6 +50,10 @@ sudo chmod +x /usr/local/bin/docker-compose
 apt-get install openssh-server
 apt-get install openssh-client
 
+# Brave
+wget -O brave.deb https://laptop-updates.brave.com/latest/dev/ubuntu64 1.2k
+dpkg -i brave.deb
+
 # Chromium
 apt install -y chromium-browser
 
@@ -114,9 +118,6 @@ snap install vscode --classic
 
 # Slack
 snap install slack --classic
-
-# Hugo
-snap install hugo
 
 # Hugo
 snap install hugo
